@@ -12,12 +12,10 @@ export class MongoDBService {
   }
 
   private initializeConnectionString() {
-    // Use the provided MongoDB Atlas connection string from environment variables
-    if (!process.env.MONGODB_URI) {
-      throw new Error('MONGODB_URI environment variable is not set');
-    }
-    this.connectionString = process.env.MONGODB_URI;
-    console.log('MongoDB URI initialized:', this.connectionString ? 'URI set' : 'URI missing');
+    // Use the provided MongoDB URI, fallback to local development database
+    this.connectionString = process.env.MONGODB_URI || 'mongodb://localhost:27017/pinmypic';
+    const isLocal = this.connectionString.includes('localhost');
+    console.log('MongoDB URI initialized:', isLocal ? 'Using local database' : 'Using remote database');
   }
 
   async connect(): Promise<void> {
