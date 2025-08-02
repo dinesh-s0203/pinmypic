@@ -4,6 +4,10 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  server: {
+    host: true, // Listen on all network interfaces
+    port: 5173, // Default Vite port
+  },
   plugins: [
     react(),
     runtimeErrorOverlay(),
