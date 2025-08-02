@@ -12,8 +12,11 @@ export class MongoDBService {
   }
 
   private initializeConnectionString() {
-    // Use the provided MongoDB Atlas connection string
-    this.connectionString = process.env.MONGODB_URI || 'mongodb+srv://pinmypic:pinmypic@cluster0.dy3yml3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+    // Use the provided MongoDB Atlas connection string from environment variables
+    if (!process.env.MONGODB_URI) {
+      throw new Error('MONGODB_URI environment variable is not set');
+    }
+    this.connectionString = process.env.MONGODB_URI;
     console.log('MongoDB URI initialized:', this.connectionString ? 'URI set' : 'URI missing');
   }
 
