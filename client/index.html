@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>PinMyPic</title>
+    <!-- Favicons with zoom-optimized settings -->
+    <link rel="icon" type="image/png" href="/logo.png" sizes="64x64" />
+    <!-- Larger default size for better visibility -->
+    <link rel="icon" type="image/png" href="/logo.png" sizes="96x96" />
+    <!-- Extra large size for high-DPI displays -->
+    <link rel="apple-touch-icon" href="/logo.png" sizes="180x180" />
+    <!-- PWA and mobile meta tags -->
+    <meta name="theme-color" content="#FF385C" />
+    <meta name="msapplication-TileImage" content="/logo.png" />
+    <meta name="msapplication-TileColor" content="#FF385C" />
+    <style>
+      /* Ensure favicon appears crisp */
+      link[rel="icon"] {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
